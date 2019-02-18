@@ -62,6 +62,7 @@ class kasir_c_penjualan extends CI_Controller {
                 'id_pelanggan'        => $id_pelanggan,
                 'nama_pelanggan'      => $this->input->post('nama_pelanggan'),
                 'alamat_pelanggan'    => $this->input->post('alamat_pelanggan'),
+                'ekspedisi'           => $this->input->post('ekspedisi'),
                 'telepon_pelanggan'   => $this->input->post('telepon_pelanggan'),
                 'maks_utang'          => 0,
                 'level'               => 4,
@@ -133,6 +134,7 @@ class kasir_c_penjualan extends CI_Controller {
                                 'id_pelanggan'      => $pelanggan_baru[$i]['id_pelanggan'],
                                 'nama_pelanggan'    => $pelanggan_baru[$i]['nama_pelanggan'],
                                 'alamat_pelanggan'  => $pelanggan_baru[$i]['alamat_pelanggan'],
+                                'ekspedisi'         => $pelanggan_baru[$i]['ekspedisi'],
                                 'telepon_pelanggan' => $pelanggan_baru[$i]['telepon_pelanggan'],
                                 'maks_utang'        => $pelanggan_baru[$i]['maks_utang'],
                                 'level'             => $pelanggan_baru[$i]['level']
@@ -199,6 +201,8 @@ class kasir_c_penjualan extends CI_Controller {
             'total_penjualan'         => $this->input->post('totalPenjualan'),
             'id_pelanggan'            => $this->input->post('idPelanggan'),
             'nama_pelanggan'          => $this->input->post('namaPelanggan'),
+            'alamat_pelanggan'        => $this->input->post('alamatPelanggan'),
+            'telepon_pelanggan'       => $this->input->post('teleponPelanggan'),
             'keterangan'              => $this->input->post('keterangan'),
             'status_upload'           => 0
         );        
@@ -213,6 +217,8 @@ class kasir_c_penjualan extends CI_Controller {
                     'id_invoice'            => $this->input->post('nomorInvoice'),
                     'id_barang'             => $detail_penjualan[$i]['idBarang'],
                     'nama_barang'           => $detail_penjualan[$i]['namaBarang'],
+                    'jumlah_dlm_koli'       => $detail_penjualan[$i]['jmlDlmKoli'],
+                    'kategori'              => $detail_penjualan[$i]['kategori'],
                     'jumlah_barang'         => $detail_penjualan[$i]['jumlah'],
                     'harga_barang'          => $detail_penjualan[$i]['harga'],
                     'diskon_barang'         => $detail_penjualan[$i]['diskon'],
@@ -247,6 +253,8 @@ class kasir_c_penjualan extends CI_Controller {
             'total_penjualan'         => $this->input->post('totalPenjualan'),
             'id_pelanggan'            => $this->input->post('idPelanggan'),
             'nama_pelanggan'          => $this->input->post('namaPelanggan'),
+            'alamat_pelanggan'        => $this->input->post('alamatPelanggan'),
+            'telepon_pelanggan'       => $this->input->post('teleponPelanggan'),
             'keterangan'              => $this->input->post('keterangan')
         );
         $isiNota = json_decode($this->input->post('isiNotaString'), true);
@@ -255,6 +263,8 @@ class kasir_c_penjualan extends CI_Controller {
                 'id_invoice'            => $this->input->post('nomorInvoice'),
                 'id_barang'             => $isiNota[$i]['idBarang'],
                 'nama_barang'           => $isiNota[$i]['namaBarang'],
+                'jumlah_dlm_koli'       => $isiNota[$i]['jmlDlmKoli'],
+                'kategori'              => $isiNota[$i]['kategori'],
                 'jumlah_barang'         => $isiNota[$i]['jumlah'],
                 'harga_barang'          => $isiNota[$i]['harga'],
                 'diskon_barang'         => $isiNota[$i]['diskon'],

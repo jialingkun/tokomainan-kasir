@@ -8,9 +8,9 @@ class kasir_m_sinkronisasi extends CI_Model {
     }
 
     public function perbarui_pelanggan($data) {
-        $query = 'INSERT INTO pelanggan (id_pelanggan, nama_pelanggan, alamat_pelanggan, telepon_pelanggan, maks_utang, level) ';
-        $query .= 'VALUES ("'.$data['id_pelanggan'].'","'.$data['nama_pelanggan'].'","'.$data['alamat_pelanggan'].'","'.$data['telepon_pelanggan'].'",'.$data['maks_utang'].',"'.$data['level'].'") ';
-        $query .= 'ON DUPLICATE KEY UPDATE nama_pelanggan="'.$data['nama_pelanggan'].'", alamat_pelanggan="'.$data['alamat_pelanggan'].'", telepon_pelanggan="'.$data['telepon_pelanggan'].'", maks_utang='.$data['maks_utang'].', level="'.$data['level'].'"';
+        $query = 'INSERT INTO pelanggan (id_pelanggan, nama_pelanggan, alamat_pelanggan, telepon_pelanggan, maks_utang, level, ekspedisi) ';
+        $query .= 'VALUES ("'.$data['id_pelanggan'].'","'.$data['nama_pelanggan'].'","'.$data['alamat_pelanggan'].'","'.$data['telepon_pelanggan'].'",'.$data['maks_utang'].',"'.$data['level'].'", "'.$data['ekspedisi'].'") ';
+        $query .= 'ON DUPLICATE KEY UPDATE nama_pelanggan="'.$data['nama_pelanggan'].'", alamat_pelanggan="'.$data['alamat_pelanggan'].'", telepon_pelanggan="'.$data['telepon_pelanggan'].'", maks_utang='.$data['maks_utang'].', level="'.$data['level'].'", ekspedisi="'.$data['ekspedisi'].'"';
         $this->db->query($query);
 
         if($this->db->affected_rows() >= 0) return 1;
@@ -62,7 +62,7 @@ class kasir_m_sinkronisasi extends CI_Model {
     }
 
     public function data_penjualan_blm_upload() {
-        $this->db->select('id_invoice, tgl_invoice, id_kasir, sub_total_penjualan, diskon_penjualan, status_diskon_penjualan, total_penjualan, id_pelanggan, nama_pelanggan, keterangan');
+        $this->db->select('id_invoice, tgl_invoice, id_kasir, sub_total_penjualan, diskon_penjualan, status_diskon_penjualan, total_penjualan, id_pelanggan, nama_pelanggan, alamat_pelanggan, telepon_pelanggan, keterangan');
         $this->db->where('status_upload', 0);
         $query = $this->db->get('laporan_penjualan');
 
