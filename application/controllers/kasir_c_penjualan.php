@@ -152,7 +152,6 @@ class kasir_c_penjualan extends CI_Controller {
                 /* Sinkronisasi data pelanggan: delete data yang sudah dihapus dari database pusat */
                 $opts = array(
                     'http' => array(
-                        'method'    => 'POST',
                         'header'    => 'Content-type: application/x-www-form-urlencoded'
                     )
                 );
@@ -218,7 +217,7 @@ class kasir_c_penjualan extends CI_Controller {
                     'id_barang'             => $detail_penjualan[$i]['idBarang'],
                     'nama_barang'           => $detail_penjualan[$i]['namaBarang'],
                     'jumlah_dlm_koli'       => $detail_penjualan[$i]['jmlDlmKoli'],
-                    'kategori'              => $detail_penjualan[$i]['kategori'],
+                    'kemasan'               => $detail_penjualan[$i]['kemasan'],
                     'jumlah_barang'         => $detail_penjualan[$i]['jumlah'],
                     'harga_barang'          => $detail_penjualan[$i]['harga'],
                     'diskon_barang'         => $detail_penjualan[$i]['diskon'],
@@ -264,7 +263,7 @@ class kasir_c_penjualan extends CI_Controller {
                 'id_barang'             => $isiNota[$i]['idBarang'],
                 'nama_barang'           => $isiNota[$i]['namaBarang'],
                 'jumlah_dlm_koli'       => $isiNota[$i]['jmlDlmKoli'],
-                'kategori'              => $isiNota[$i]['kategori'],
+                'kemasan'               => $isiNota[$i]['kemasan'],
                 'jumlah_barang'         => $isiNota[$i]['jumlah'],
                 'harga_barang'          => $isiNota[$i]['harga'],
                 'diskon_barang'         => $isiNota[$i]['diskon'],
